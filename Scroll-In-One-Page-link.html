@@ -1,0 +1,137 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>One Page Scroll</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style type="text/css">
+      .home {
+        padding:100px;
+      }
+      .pages {
+        padding: 150px;
+      } 
+      #upbtn {
+        display: none;
+        position: fixed;
+        bottom: 20px;
+        left: 30px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+        border:1px solid black;
+      }
+    </style>
+
+  </head>
+  <body>
+    <nav id="top-of-page">
+      <div class="container">     
+          <center>
+          <ul style="margin-top: 10px">
+              <a class="nav-link js-scroll-trigger btn btn-primary" href="#red">Red</a>
+              <a class="nav-link js-scroll-trigger btn btn-primary" href="#yellow">Yellow</a>
+              <a class="nav-link js-scroll-trigger btn btn-primary" href="#green">Green</a>
+          </ul>
+          </center>
+      </div>
+    </nav>
+    <header class="bg-primary home">
+      <div class="container text-center">
+        <h1>Home</h1>
+      </div>
+    </header>
+
+    <div class="pages" id="red" style="background-color: #FD4138">
+      <div class="container">
+        <div class="row">
+          <div style="height: 200px">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pages" id="yellow" style="background-color: #EFFD38">
+      <div class="container">
+        <div class="row">
+          <div style="height: 200px">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pages" id="green" style="background-color: #4BFD38">
+      <div class="container">
+        <div class="row">
+          <div style="height: 200px">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+
+<button id='upbtn' onclick="topFunction()"><span class="fa fa-angle-up"></span></button>
+
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; NepSho.com 2018<p>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+<script>
+          window.onscroll = function(){whentogoup()};
+           function whentogoup()
+            {
+              if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+              document.getElementById("upbtn").style.display = "block";
+             } else {
+              document.getElementById("upbtn").style.display = "none";
+            }
+            }
+            function topFunction()
+            {
+              document.body.scrollTop = 0;
+              document.documentElement.scrollTop = 0;
+            }
+
+</script>
+    <script>
+    (function($) {
+      "use strict";
+      $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+          if (target.length) {
+            $('html, body').animate({
+              scrollTop: (target.offset().top - 54)
+            }, 1000, "easeInOutExpo");
+            return false;
+          }
+        }
+      });
+      $('.js-scroll-trigger').click(function() {
+        $('.navbar-collapse').collapse('hide');
+      });
+
+      $('body').scrollspy({
+        target: '#top-of-page',
+        offset: 54
+      });
+
+    })(jQuery);
+    </script>
+
+  </body>
+
+</html>
