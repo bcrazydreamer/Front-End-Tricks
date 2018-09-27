@@ -1,0 +1,92 @@
+<html lang="en">
+<head>
+    <title>Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+      .pics
+      {
+        width: 100%;
+        height: 200px;
+      }
+    </style>
+</head>
+<body>
+
+<center>
+  <input type="file" class="btn btn-primary" id="test" webkitdirectory directory multiple/>
+</center>
+
+<div id="result" class="col-sm-12">
+  <!-- Result here-->
+</div>
+
+
+<script type="text/javascript">
+  var allFiles;
+  var totalFiles;
+  var temp = [];
+  var last = 16;
+  var topScrollHistory = 0;
+  $("#test").change(function(e){
+    allFiles = e.target.files;
+    totalFiles = allFiles.length;
+    for(i=0;i<totalFiles;i++)
+    {
+      fn = allFiles[i].name.toLowerCase();
+      if(fn.endsWith(".jpg") || fn.endsWith(".jpeg") || fn.endsWith(".png") || fn.endsWith(".gif"))
+      {
+        temp.push(allFiles[i]);
+      }
+    }
+    console.log(allFiles.length);
+    allFiles = temp;
+    console.log(allFiles.length);
+    if(allFiles.length > 16 )
+    {
+      initTotal = 16;
+    } else {
+      initTotal = allFiles.length;
+    }
+    for(i = 0 ;i<initTotal;i++)
+    {
+      last = 16;
+      fn = allFiles[i].name.toLowerCase();
+      if(fn.endsWith(".jpg") || fn.endsWith(".jpeg") || fn.endsWith(".png") || fn.endsWith(".gif"))
+      {
+        ob = URL.createObjectURL(allFiles[i]);
+        img = "<div class='col-sm-3'><img class='pics' src='"+ob+"'' /></div>";
+        $("#result").append(img);
+      }
+    }
+  });
+
+  $(window).scroll(function() {
+    if(totalFiles>0)
+    {
+      currentTopScroll = $(window).scrollTop();
+      currentScroll = currentTopScroll + $(window).height();
+      if((currentScroll > $(document).height()-200) && (currentTopScroll > topScrollHistory))  {
+        
+        for(i=last;i<last+16;i++)
+        {
+          fn = allFiles[i].name.toLowerCase();
+          if(fn.endsWith(".jpg") || fn.endsWith(".jpeg") || fn.endsWith(".png"))
+          {
+            ob = URL.createObjectURL(allFiles[i]);
+            img = "<div class='col-sm-3'><img class='pics' src='"+ob+"'' /></div>";
+            $("#result").append(img);
+          }
+        }
+        totalFiles = totalFiles - 16;
+        topScrollHistory = currentTopScroll;
+       }
+    }
+  });
+
+</script>
+</body>
+</html>
