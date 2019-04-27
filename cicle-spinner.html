@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CircleSpinner</title>
+  <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
+  <style type="text/css">
+    body{
+      background: #000000;
+      height: 90vh;
+      display: flex;
+      justify-content:center;
+      align-items: center;
+    }
+    #cs-loader {
+      width: 50px;
+      height: 50px;
+      padding:5px;
+      position: relative;
+      -webkit-animation-name: cs-rotate; 
+      -webkit-animation-duration: .6s; 
+      -webkit-animation-iteration-count: infinite;
+      -webkit-animation-timing-function: linear;
+      -moz-animation-name: cs-rotate; 
+      -moz-animation-duration: .6s; 
+      -moz-animation-iteration-count: infinite;
+      -moz-animation-timing-function: linear;
+      background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0.50, transparent),
+        color-stop(0.49, rgba(255,255,255,0.4)),
+        color-stop(0.35, #FFFFFF)
+      );
+      border-radius:50%;
+    }
+    #cs-loader .cs-inner-body {
+      background:#000000;
+      color:#fff;
+      font-size: 20px;
+      text-align: center;
+      min-height: 100%;
+      border-radius:50%;
+    }
+    @-webkit-keyframes cs-rotate {
+        from {-webkit-transform: rotate(0deg);}
+        to {-webkit-transform: rotate(360deg);}
+    }
+    @-moz-keyframes cs-rotate {
+        from {-moz-transform: rotate(0deg);}
+        to {-moz-transform: rotate(360deg);}
+    }
+  
+  </style>
+</head>
+<body>
+
+
+
+<div id="cs-loader">
+  <div class="cs-inner-body"></div>
+</div>
+
+
+</body>
+</html>
