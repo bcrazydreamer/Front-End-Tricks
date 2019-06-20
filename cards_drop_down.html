@@ -1,0 +1,284 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DropDown</title>
+	<style type="text/css">
+		
+		
+		 ul{
+			  margin: 0;
+			  padding: 0;
+			  border: 0;
+			  font: inherit;
+			  font-size: 100%;
+			  vertical-align: baseline;
+			}
+
+html {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+a img {
+  border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf0f1;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+p {
+  line-height: 1.5;
+  text-align: left;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+.card-drop {
+  position: relative;
+  margin: 0 auto;
+  -moz-perspective: 800px;
+  -webkit-perspective: 800px;
+  perspective: 800px;
+  background: rgba(0, 0, 0, 0.1);
+}
+.card-drop a {
+  display: block;
+  width: 100%;
+  padding: 20px 0 20px 20px;
+  height: 60px;
+  text-decoration: none;
+  color: #217dbb;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.card-drop a i {
+  display: inline-block;
+  width: 20px;
+}
+.card-drop > a.toggle {
+  position: relative;
+  z-index: 100;
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -moz-transform-origin: 50% 0%;
+  -ms-transform-origin: 50% 0%;
+  -webkit-transform-origin: 50% 0%;
+  transform-origin: 50% 0%;
+  -moz-transition: linear 0.1s;
+  -o-transition: linear 0.1s;
+  -webkit-transition: linear 0.1s;
+  transition: linear 0.1s;
+}
+.card-drop > a.toggle:active {
+  -moz-transform: rotateX(60deg);
+  -webkit-transform: rotateX(60deg);
+  transform: rotateX(60deg);
+}
+.card-drop > a.toggle:active:after {
+  -moz-transform: rotateX(180deg);
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+.card-drop > a.toggle:before, .card-drop > a.toggle:after {
+  content: "";
+  position: absolute;
+}
+.card-drop > a.toggle:before {
+  right: 25px;
+  top: 50%;
+  margin-top: -2.5px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(0, 0, 0, 0.8);
+}
+.card-drop > a.toggle.active:before {
+  transform: rotate(180deg);
+}
+.card-drop ul {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  display: block;
+  width: 100%;
+}
+.card-drop ul li {
+  margin: 0 auto;
+  -moz-transition: all, ease-out 0.3s;
+  -o-transition: all, ease-out 0.3s;
+  -webkit-transition: all, ease-out 0.3s;
+  transition: all, ease-out 0.3s;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+}
+.card-drop ul li a {
+  border-top: none;
+}
+.card-drop ul li a:hover {
+  background-color: #4aa3df;
+  color: #f3f9fd;
+}
+.card-drop ul li.active a {
+  color: #fff;
+  background-color: #258cd1;
+  cursor: default;
+}
+.card-drop ul li.closed a:hover {
+  cursor: default;
+  background-color: #3498db;
+}
+
+	</style>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<div class="container">
+			<div class="card-drop">
+				<a class='toggle' href="#">
+  					<i class='icon-suitcase'></i> 
+					  <span class='label-active'>Everyting</span>
+				</a>
+				<ul>
+					  <li class='active'>
+						    <a data-label="Everyting" href="#"><i class='icon-suitcase'></i> Everyting</a>
+					  </li>
+					  <li>
+    						<a data-label="Design" href="#"><i class='icon-magic'></i> Design</a>
+					  </li>
+  					<li >
+    						<a data-label="UI-UX" href="#"><i class='icon-bolt'></i> UI-UX</a>
+					  </li>
+					  <li>
+						    <a data-label="Print" href="#"><i class='icon-tint'></i> Print</a>
+					  </li>
+  					<li>
+    						<a data-label="Photography" href="#"><i class='icon-camera-retro'></i> Phtography</a>
+					  </li>
+  <li>
+    						<a data-label="Photography" href="#"><i class='icon-camera-retro'></i> Phtography</a>
+  					</li>                  
+				</ul>
+			</div>
+<script type="text/javascript">
+	(function($){
+  //Author: Brady Sammons
+  //URL: www.bradysammons.com
+	/* -------------------------------------------------------- */ 
+	/*	//set Global variables
+	/* -------------------------------------------------------- */ 
+	var cards = $(".card-drop"),
+		toggler = cards.find(".toggle"),
+		links = cards.find("ul>li>a"),
+		li = links.parent('li'),
+		count = links.length,
+		width = 100;
+
+		//set z-Index of drop Items
+		li.each(function(i){
+			$(this).css("z-index" , count - i); //invert the index values
+		});
+
+		//set top margins & widths of li elements
+		function setClosed(){
+			li.each(function(index){
+				 $(this).css("top" , index * 4)
+				 		.css("width" , (width - index * .5) + "%" )
+				 		.css("margin-left" , (index * .25) + "%" )
+			});
+			li.addClass('closed');
+			toggler.removeClass("active");
+		}
+		setClosed();
+
+	/* -------------------------------------------------------- */ 
+	/*	Toggler Click handler
+	/* -------------------------------------------------------- */ 
+	toggler.on("mousedown" , function(){
+		var $this = $(this); //cache $(this)
+		//if the menu is active:
+		if($this.is(".active")){
+			setClosed();
+		}else{
+			//if the menu is un-active:
+			$this.addClass("active");
+			li.removeClass('closed');
+			//set top margins
+			li.each(function(index){
+				 $(this).css("top" , 60 * (index + 1))
+				 		.css("width" , "100%")
+				 		.css("margin-left" , "0px");
+			});
+		}
+	});
+	links.on("click" , function(e){
+		var $this = $(this),
+			label = $this.data("label");
+			icon = $this.children("i").attr("class");
+			
+			li.removeClass('active');
+		if($this.parent("li").is("active")){
+			$this.parent('li').removeClass("active");
+		}else{
+			$this.parent("li").addClass("active");
+		}
+		toggler.children("span").text(label);
+		toggler.children("i").removeClass().addClass(icon);
+		setClosed();
+		e.preventDefault;
+	});
+
+})(jQuery);
+</script>
+</body>
+</html>
